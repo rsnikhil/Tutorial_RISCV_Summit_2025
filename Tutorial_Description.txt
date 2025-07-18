@@ -1,0 +1,62 @@
+Tutorial on Developer's Day, RISC-V Summit, Santa Clara, October 22, 2025
+
+================================================================
+Title: Learn to Design and Verify a 6-stage pipelined RISC-V CPU
+
+Duration: 2 hours (120 minutes)
+
+Instructor: Rishiyur S. Nikhil, Ph.D., CTO and co-founder, Bluepec, Inc.
+
+================================================================
+Outline:
+
+In this hands-on tutorial, we will study microarchitectural principles
+in a 6-stage pipelined RISC-V CPU, including branch prediction,
+register hazard management, speculative memory ops, and concurrent
+execution units.
+
+We will, together, study the design code (written in the High Level
+Hardware Description Language Bluespec BSV) for an actual, implemented
+CPU, called "Fife".
+
+By abstracting RISC-V functional features from microarchitectural
+features (pipelining), we will simultaneously develop an unpipelined,
+implementation called "Drum" that can serve both as a verification
+reference for Fife and as a place to experiment with new features such
+as accelerators and custom instructions (Drum is a kind of
+synthesizable "digital twin" for Fife).
+
+We will compile Fife and Drum into simulation executables, and have
+them execute RISC-V binaries.
+
+We will set up a verification harness for Fife and Drum using
+U.Cambridge's "TestRIG" which does "Property-Based Testing"
+(cf. Haskell Quickcheck).  We will verify them against the official
+Sail RISC-V Formal Specification.
+
+We will describe an FPGA flow and demonstrate Fife and Drum executing
+RISC-V binaries on an FPGA in the cloud.
+
+All the material for this tutorial (free PDF textbook, free and
+open-source full code) will be available at:
+
+    https://github.com/rsnikhil/Learn_Bluespec_and_RISCV_Design
+
+================================================================
+Prerequisites and non-prerequisites:
+
+We do expect a prior understanding of an ISA (assembly language and
+machine code) for RISC-V or any other ISA.
+
+We do not expect any prior experience with, or any prior exposure to
+hardware design (such as Verilog/SystemVerilog/VHDL) or CPU pipeline
+microarchitecture.
+
+For the full hands-on experience (strongly recommended), we encourage
+installing from one to four free and open-source tools in advance of
+the tutorial.  Detailed installation instructions will be provided by
+September 22, 2025 at:
+
+    https://github.com/rsnikhil/Tutorial_RISCV_Summit_2025
+
+================================================================

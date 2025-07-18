@@ -1,0 +1,124 @@
+= Learn to Design and Verify a 6-stage pipelined RISC-V CPU
+(c) Rishiyur S. Nikhil, Bluespec, Inc. 2025
+:revnumber: v0.700
+:revdate: 2025-05-18.A
+:imagesdir: Doc/Figs
+:sectnums:
+:toc:
+:toclevels: 3
+:toc-title: Contents
+:keywords: Bluespec, B-Lang, BSV, BH, RISC-V, Pipelined CPU, HDL, HLHDL, High Level Hardware Design Language, Fife, Drum
+
+// ****************************************************************
+
+[NOTE]
+====
+This document's source is `README.adoc` and can be read as-is in a
+text-editor or terminal.  It can also be processed with the free,
+open-source `asciidoctor` tool into `README.html` and viewed in any
+browser.  GitHub will automatically process and display .adoc
+documents.
+====
+
+// ****************************************************************
+
+== Introduction
+
+This is currently a place-holder repository for materials for a
+tutorial planned for the RISC-V Summit in Santa Clara, CA, on October
+22, 2025.
+
+Here is a link:Tutorial_Description.txt[description of the tutorial].
+Please go to the
+link:https://riscv.org/community/risc-v-summits/[RISC-V website^] if
+you wish to attend the summit or the tutorial.
+
+// ****************************************************************
+
+== Installing tools for the full "hands-on" experience at the tutorial
+
+For the full hands-on experience (strongly recommended), we encourage
+installing from one to four free and open-source tools in advance of
+the tutorial.  We list the tools here, so you can go ahead and try
+installing them by following their respective README/Installation
+guides.  Or, if you wish to wait until September 22, 2025 (1 month
+before the tutorial), we will augment this list with our own more
+detailed, hand-holding installation instructions.
+
+[NOTE]
+====
+
+All these tools run in Linux and on MacOS.
+
+For Windows users, we recommend either using a Linux virtual machine
+inside Windows, or `ssh` to a Linux/MacOS machine that has these
+tools.  All these tools are operated at the command-line (no GUI), so
+`ssh` from a terminal window is sufficient.
+
+====
+
+// ================================================================
+
+=== *bsc* compiler (for Bluespec *BSV* High-Level Hardware Description Language)
+
+https://github.com/B-Lang-org/bsc[^]
+
+This tool is sufficient for compiling the CPUs (Bluespec *BSV* source
+code) into a native-code simulator ("Bluesim") and running them.
+
+Bluesim can also generate VCD waveforms which can be viewed with any
+VCD viewer, including the popular free-and-open-source *gtkwave*
+(https://gtkwave.sourceforge.net/[^]).
+
+// ================================================================
+
+=== *verilator* Verilog simulator
+
+https://github.com/verilator/verilator[^]
+
+This tool is needed for Verilog simulation (cycle-accurate equivalent
+to the above Bluesim simulation). The *bsc* compiler is used to
+compile the CPUs (Bluespec *BSV* source code) into Verilog, and then
+*verilator* is used to compile that into a Verilog simulation.
+
+Alternatively, you can use any other free and open-source Verilog
+simulation tool that you may be familiar with (e.g., Icarus Verilog,
+CVC).
+
+Alternatively, you can use any other proprietary (licensed) Verilog
+simulation tool that you may be familiar with (e.g., simulators from
+Cadence/Synopsys/Siemens).
+
+// ================================================================
+
+=== *TestRIG* tool for property-based testing of RISC-V CPUs
+
+https://github.com/CTSRD-CHERI/TestRIG[^]
+
+This tool provides a verification harness for RISC-V CPUs, to compare
+the Sail RISC-V Formal Specification against an implementation, or two
+implementations against each other (such as Fife and Drum).
+
+*TestRIG* employs "Property Based Testing" (PBT).  In particular, it
+uses Haskell QuickCheck.
+
+// ================================================================
+
+=== Official *Sail RISC-V Formal Specification*
+
+This provides the Sail RISC-V Formal Specification as an executable
+simulator that can be used as a "reference" model against which to
+compare RISC-V implementations.
+
+This is best installed as part of the *TestRIG* installation (see
+*TestRIG* instructions), instead of having a separate standalone
+installation.  If you wish to have a separate standalone installation,
+please see: https://github.com/riscv/sail-riscv[^]
+
+// ****************************************************************
+
+== Slides for the tutorial (PDF)
+
+Will be available on or before the tutorial date.
+
+// ****************************************************************
