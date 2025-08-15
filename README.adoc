@@ -42,9 +42,9 @@ Please visit the
   (placeholder for now; will be made available shortly before the
   tutorial date).
 
-* link:Doc/Resources.html[Instructions for acquiring and installing
-  all resources/tools] needed for "hands-on" participation (all are
-  free and open-source).
+* Instructions for acquiring and installing all resources/tools
+  (link:Doc/Resources.adoc[adoc],link:Doc/Resources.html[html]) needed
+  for "hands-on" participation (all are free and open-source).
 +
 [IMPORTANT]
 ====
