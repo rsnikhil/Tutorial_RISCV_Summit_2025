@@ -805,6 +805,16 @@ skipped otherwise.</p>
 <p>Please <code>git clone</code> the following repository:
 <a href="https://github.com/CTSRD-CHERI/TestRIG" class="bare" target="_blank" rel="noopener">https://github.com/CTSRD-CHERI/TestRIG</a></p>
 </div>
+<div class="paragraph">
+<p>Remember to perform this recursive submodule initialization (this
+brings in several other respositories that <strong>TestRIG</strong> depends on):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>    $ cd &lt;your clone of TestRIG repo&gt;
+    $ git submodule update --init --recursive</code></pre>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_python">5.1. <strong>Python</strong></h3>
 <div class="paragraph">
@@ -912,7 +922,7 @@ standard place known to <strong>TestRIG</strong>.</p>
 <div id="footer">
 <div id="footer-text">
 Version v0.900<br>
-Last updated 2025-08-15 15:35:38 -0400
+Last updated 2025-08-15 15:53:21 -0400
 </div>
 </div>
 </body>

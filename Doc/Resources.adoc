@@ -23,7 +23,6 @@ documents.
 toc::[]
 
 // ****************************************************************
-
 == Introduction
 
 This document describes the resources to download and install for the
@@ -238,6 +237,14 @@ skipped otherwise.
 
 Please `git clone` the following repository:
 https://github.com/CTSRD-CHERI/TestRIG[^]
+
+Remember to perform this recursive submodule initialization (this
+brings in several other respositories that *TestRIG* depends on):
+
+```
+    $ cd <your clone of TestRIG repo>
+    $ git submodule update --init --recursive
+```
 
 // ================================================================
 === *Python*
