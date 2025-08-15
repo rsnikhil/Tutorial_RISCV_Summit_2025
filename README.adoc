@@ -1,12 +1,8 @@
 = Learn to Design and Verify a 6-stage pipelined RISC-V CPU
 (c) Rishiyur S. Nikhil, Bluespec, Inc. 2025
-:revnumber: v0.700
-:revdate: 2025-05-18.A
+:revnumber: v0.800
+:revdate: 2025-08-15
 :imagesdir: Doc/Figs
-:sectnums:
-:toc:
-:toclevels: 3
-:toc-title: Contents
 :keywords: Bluespec, B-Lang, BSV, BH, RISC-V, Pipelined CPU, HDL, HLHDL, High Level Hardware Design Language, Fife, Drum
 
 // ****************************************************************
@@ -22,103 +18,54 @@ documents.
 
 // ****************************************************************
 
-== Introduction
+This repository holds materials for the following tutorial:
 
-This is currently a place-holder repository for materials for a
-tutorial planned for the RISC-V Summit in Santa Clara, CA, on October
-22, 2025.
+[.excerpt]
+____
+"Learn to Design and Verify a 6-stage pipelined RISC-V CPU" +
+at the RISC-V Summit, Santa Clara, CA, "Developer's Day", October 22, 2025 +
+Instructor: Rishiyur S. Nikhil, Ph.D., CTO and Co-founder, Bluespec, Inc.
+____
 
-Here is a link:Tutorial_Description.txt[description of the tutorial].
-Please go to the
-link:https://riscv.org/community/risc-v-summits/[RISC-V website^] if
-you wish to attend the summit or the tutorial.
+This repository contains:
 
-// ****************************************************************
+* link:Doc/Tutorial_Description.txt[A brief description of the
+  tutorial] (same as on
+  link:https://riscv.org/community/risc-v-summits/[RISCV.org^]
+  website)
++
+Please visit the
+  link:https://riscv.org/community/risc-v-summits/[RISCV.org^] website
+  if you wish to register for and attend the summit or the tutorial.
 
-== Installing tools for the full "hands-on" experience at the tutorial
+* link:Slides_Placeholder.pdf[PDF slides] for the tutorial
+  (placeholder for now; will be made available shortly before the
+  tutorial date).
 
-For the full hands-on experience (strongly recommended), we encourage
-installing from one to four free and open-source tools in advance of
-the tutorial.  We list the tools here, so you can go ahead and try
-installing them by following their respective README/Installation
-guides.  Or, if you wish to wait until September 22, 2025 (1 month
-before the tutorial), we will augment this list with our own more
-detailed, hand-holding installation instructions.
-
-[NOTE]
+* link:Doc/Resources.html[Instructions for acquiring and installing
+  all resources/tools] needed for "hands-on" participation (all are
+  free and open-source).
++
+[IMPORTANT]
 ====
 
-All these tools run in Linux and on MacOS.
+*We strongly recommend that you download and install resources in
+ advance of the tutorial at the RISC-V Summit.*
 
-For Windows users, we recommend either using a Linux virtual machine
-inside Windows, or `ssh` to a Linux/MacOS machine that has these
-tools.  All these tools are operated at the command-line (no GUI), so
-`ssh` from a terminal window is sufficient.
+Due to the limited time available at the tutorial, we cannot afford to
+spend any time at the tutorial on resource downloading and
+installation.
 
 ====
 
-// ================================================================
+This tutorial includes major live, "hands-on" components:
 
-=== *bsc* compiler (for Bluespec *BSV* High-Level Hardware Description Language)
+* Reading excerpts of actual source code of the CPU hardware design
+* Building simulation executables for the CPU and running it on RISC-V code
+* Verifying the CPU by running it in a verification environment
 
-https://github.com/B-Lang-org/bsc[^]
-
-This tool is sufficient for compiling the CPUs (Bluespec *BSV* source
-code) into a native-code simulator ("Bluesim") and running them.
-
-Bluesim can also generate VCD waveforms which can be viewed with any
-VCD viewer, including the popular free-and-open-source *gtkwave*
-(https://gtkwave.sourceforge.net/[^]).
-
-// ================================================================
-
-=== *verilator* Verilog simulator
-
-https://github.com/verilator/verilator[^]
-
-This tool is needed for Verilog simulation (cycle-accurate equivalent
-to the above Bluesim simulation). The *bsc* compiler is used to
-compile the CPUs (Bluespec *BSV* source code) into Verilog, and then
-*verilator* is used to compile that into a Verilog simulation.
-
-Alternatively, you can use any other free and open-source Verilog
-simulation tool that you may be familiar with (e.g., Icarus Verilog,
-CVC).
-
-Alternatively, you can use any other proprietary (licensed) Verilog
-simulation tool that you may be familiar with (e.g., simulators from
-Cadence/Synopsys/Siemens).
-
-// ================================================================
-
-=== *TestRIG* tool for property-based testing of RISC-V CPUs
-
-https://github.com/CTSRD-CHERI/TestRIG[^]
-
-This tool provides a verification harness for RISC-V CPUs, to compare
-the Sail RISC-V Formal Specification against an implementation, or two
-implementations against each other (such as Fife and Drum).
-
-*TestRIG* employs "Property Based Testing" (PBT).  In particular, it
-uses Haskell QuickCheck.
-
-// ================================================================
-
-=== Official *Sail RISC-V Formal Specification*
-
-This provides the Sail RISC-V Formal Specification as an executable
-simulator that can be used as a "reference" model against which to
-compare RISC-V implementations.
-
-This is best installed as part of the *TestRIG* installation (see
-*TestRIG* instructions), instead of having a separate standalone
-installation.  If you wish to have a separate standalone installation,
-please see: https://github.com/riscv/sail-riscv[^]
-
-// ****************************************************************
-
-== Slides for the tutorial (PDF)
-
-Will be available on or before the tutorial date.
-
-// ****************************************************************
+Although this tutorial can fruitfully be attended just as an ordinary
+lecture (i.e., observe slides and demos on the big screen), *you will
+get much more value* if you participate in the "hands-on" segments
+(during and after the tutorial), by code-reading, simulating and
+verifying on your own laptop.

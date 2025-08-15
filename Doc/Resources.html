@@ -7,7 +7,7 @@
 <meta name="generator" content="Asciidoctor 2.0.23">
 <meta name="keywords" content="Bluespec, B-Lang, BSV, BH, RISC-V, Pipelined CPU, HDL, HLHDL, High Level Hardware Design Language, Fife, Drum">
 <meta name="author" content="(c) Rishiyur S. Nikhil, Bluespec, Inc. 2025">
-<title>Learn to Design and Verify a 6-stage pipelined RISC-V CPU</title>
+<title>Resources for tutorial "Learn to Design and Verify a 6-stage pipelined RISC-V CPU"</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,14 +438,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Learn to Design and Verify a 6-stage pipelined RISC-V CPU</h1>
+<h1>Resources for tutorial "Learn to Design and Verify a 6-stage pipelined RISC-V CPU"</h1>
 <div class="details">
 <span id="author" class="author">(c) Rishiyur S. Nikhil, Bluespec, Inc. 2025</span><br>
-<span id="revnumber">version v0.800,</span>
+<span id="revnumber">version v0.900,</span>
 <span id="revdate">2025-08-15</span>
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -454,9 +456,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>This document&#8217;s source is <code>README.adoc</code> and can be read as-is in a
+<p>This document&#8217;s source is <code>Resources.adoc</code> and can be read as-is in a
 text-editor or terminal.  It can also be processed with the free,
-open-source <code>asciidoctor</code> tool into <code>README.html</code> and viewed in any
+open-source <code>asciidoctor</code> tool into <code>Resources.html</code> and viewed in any
 browser.  GitHub will automatically process and display .adoc
 documents.</p>
 </div>
@@ -464,43 +466,62 @@ documents.</p>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>This repository holds materials for the following tutorial:</p>
-</div>
-<div class="quoteblock excerpt">
-<blockquote>
-<div class="paragraph">
-<p>"Learn to Design and Verify a 6-stage pipelined RISC-V CPU"<br>
-at the RISC-V Summit, Santa Clara, CA, "Developer&#8217;s Day", October 22, 2025<br>
-Instructor: Rishiyur S. Nikhil, Ph.D., CTO and Co-founder, Bluespec, Inc.</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>This repository contains:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="Doc/Tutorial_Description.txt">A brief description of the
-tutorial</a> (same as on
-<a href="https://riscv.org/community/risc-v-summits/" target="_blank" rel="noopener">RISCV.org</a>
-website)</p>
-<div class="paragraph">
-<p>Please visit the
-  <a href="https://riscv.org/community/risc-v-summits/" target="_blank" rel="noopener">RISCV.org</a> website
-  if you wish to register for and attend the summit or the tutorial.</p>
-</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#sec_book_repo">2. Drum and Fife hardware design source code, textbook, and more</a></li>
+<li><a href="#sec_bsc">3. <strong>bsc</strong> compiler (for Bluespec <strong>BSV</strong> High-Level Hardware Description Language)</a></li>
+<li><a href="#sec_verilator">4. Verilog simulation with <strong>verilator</strong> or other Verilog simulator tool</a>
+<ul class="sectlevel2">
+<li><a href="#_if_you_use_a_different_verilog_simulation_tool">4.1. If you use a different Verilog simulation tool</a></li>
+</ul>
 </li>
-<li>
-<p><a href="Slides_Placeholder.pdf">PDF slides</a> for the tutorial
-(placeholder for now; will be made available shortly before the
-tutorial date).</p>
+<li><a href="#sec_testrig">5. <strong>TestRIG</strong> tool for property-based testing of RISC-V CPUs</a>
+<ul class="sectlevel2">
+<li><a href="#_python">5.1. <strong>Python</strong></a></li>
+<li><a href="#_qcvengine">5.2. <strong>QCVengine</strong></a>
+<ul class="sectlevel3">
+<li><a href="#sec_ghc">5.2.1. Installing the <strong>ghc</strong> Haskell compiler</a></li>
+<li><a href="#_building_qcvengine_with_the_ghc_haskell_compiler">5.2.2. Building <strong>QCVEngine</strong> with the <strong>ghc</strong> Haskell compiler</a></li>
+</ul>
 </li>
-<li>
-<p><a href="Doc/Resources.html">Instructions for acquiring and installing
-all resources/tools</a> needed for "hands-on" participation (all are
-free and open-source).</p>
+<li><a href="#_official_sail_risc_v_formal_specification">5.3. Official <strong>Sail RISC-V Formal Specification</strong></a>
+<ul class="sectlevel3">
+<li><a href="#_installing_the_ocaml_compiler">5.3.1. Installing the <strong>OCaml</strong> compiler</a></li>
+<li><a href="#_building_sail_risc_v_formal_specification_with_ocaml_compiler">5.3.2. Building <strong>Sail RISC-V Formal Specification</strong> with <strong>OCaml</strong> compiler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document describes the resources to download and install for the
+"hands-on" part of the "Learn to Design and Verify a 6-stage pipelined
+RISC-V CPU" tutorial.  The following figure is taken from the tutorial
+slide deck, showing the tutorial plan:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="Figs/RSN_2025-07-25.000.00_Tutorial_Plan.png" alt="RSN 2025 07 25.000.00 Tutorial Plan" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>The following figure shows "hand-on" activities in the tutorial, and
+the corresponding resources you should download and install.  Each
+"Resource/action" is described in more detail in subsequent sections.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="Figs/RSN_2025-08-15.000.00_Tutorial_Resources.png" alt="RSN 2025 08 15.000.00 Tutorial Resources" width="900">
+</div>
+</div>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -513,45 +534,385 @@ free and open-source).</p>
  advance of the tutorial at the RISC-V Summit.</strong></p>
 </div>
 <div class="paragraph">
-<p>Due to the limited time available at the tutorial, we cannot afford to
-spend any time at the tutorial on resource downloading and
-installation.</p>
+<p>Due to the limited time available for the tutorial, we cannot afford
+to use any of that time on resource downloading and installation.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-</li>
-</ul>
+<div class="paragraph">
+<p>All the resources are free and open-source, on GitHub.</p>
 </div>
 <div class="paragraph">
-<p>This tutorial includes major live, "hands-on" components:</p>
+<p>Each resource has its own README and Installation instructions on
+their respective GitHub sites, which should be taken as definitive;
+our descriptions in this document should be seen as secondary and only
+intended to provide additional help/clarity.</p>
+</div>
+<div class="paragraph">
+<p>All the resources can be installed/built and run in Linux (e.g.,
+Ubuntu) and on MacOS.</p>
+</div>
+<div class="paragraph">
+<p>For Windows users, we recommend either using a Linux virtual machine
+inside Windows, or <code>ssh</code> to a Linux/MacOS machine that has these
+tools.  All these tools are operated at the command-line (no GUI), so
+<code>ssh</code> from a terminal window is sufficient.</p>
+</div>
+<div class="paragraph">
+<p>We recommend installing tools incrementally; each step enables you to
+do more of the "hands-on" activities:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>git clone</code> a repo for Drum and Fife code (Section
+<a href="#sec_book_repo">Drum and Fife hardware design source code, textbook, and more</a>), textbook, etc.</p>
+<div class="paragraph">
+<p>This enables you to read all Drum and Fife hardware design code.</p>
+</div>
+</li>
+<li>
+<p>Download and install the <strong>bsc</strong> compiler (Section <a href="#sec_bsc"><strong>bsc</strong> compiler (for Bluespec <strong>BSV</strong> High-Level Hardware Description Language)</a>).</p>
+<div class="paragraph">
+<p>This enables you to compile and run Bluesim simulations of Drum and Fife.</p>
+</div>
+</li>
+<li>
+<p><code>git clone</code> and install <strong>TestRIG</strong> (Section <a href="#sec_testrig"><strong>TestRIG</strong> tool for property-based testing of RISC-V CPUs</a>).</p>
+<div class="paragraph">
+<p>This enables using <strong>TestRIG</strong> on Drum and Fife using Bluesim simulation.</p>
+</div>
+</li>
+<li>
+<p><code>git clone</code> and install <strong>Verilator</strong> (Section
+<a href="#sec_verilator">Verilog simulation with <strong>verilator</strong> or other Verilog simulator tool</a>).</p>
+<div class="paragraph">
+<p>This enables you to compile and run Verilog simulations of Drum and Fife, and <strong>TestRIG</strong>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sec_book_repo">2. Drum and Fife hardware design source code, textbook, and more</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Please <code>git clone</code> the following repository to your laptop:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/rsnikhil/Learn_Bluespec_and_RISCV_Design" class="bare" target="_blank" rel="noopener">https://github.com/rsnikhil/Learn_Bluespec_and_RISCV_Design</a></p>
+</div>
+<div class="paragraph">
+<p>It contains:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Reading excerpts of actual source code of the CPU hardware design</p>
+<p>All the hardware design source code for the Drum and Fife CPUs (in
+the <code>Code/src_*</code>) directories.</p>
 </li>
 <li>
-<p>Building simulation executables for the CPU and running it on RISC-V code</p>
+<p>Makefiles to build standalone Bluesim and Verilator simulations of
+Drum and Fife, ready to execute RISC-V RV32i binaries.</p>
 </li>
 <li>
-<p>Verifying the CPU by running it in a verification environment</p>
+<p>Documentation in the <code>Doc/</code> directory.</p>
+</li>
+<li>
+<p>Additional source code and Makefile in the <code>TestRIG/</code> directory
+providing a wrapper for Drum and Fife to be plugged into <strong>TestRIG</strong>.</p>
+</li>
+<li>
+<p>A 300 page PDF textbook: <code>Book_BLang_RISCV.pdf</code></p>
+</li>
+<li>
+<p>Lecture slides and Exercises so the book and code can be
+used for a late undergraduate-level or early
+graduate-level university course.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sec_bsc">3. <strong>bsc</strong> compiler (for Bluespec <strong>BSV</strong> High-Level Hardware Description Language)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tool is sufficient for compiling and building the Drum and Fife
+CPUs into a native-code simulator ("Bluesim") and running them. It is
+also sufficient for compiling and building the <strong>TestRIG</strong> wrapper for
+Drum and Fife.</p>
+</div>
+<div class="paragraph">
+<p>Bluesim is 100% cycle-accurate to Verilog simulation, and can also
+generate VCD waveforms which can be viewed with any VCD viewer,
+including the popular free-and-open-source <strong>gtkwave</strong>
+(<a href="https://gtkwave.sourceforge.net/" class="bare" target="_blank" rel="noopener">https://gtkwave.sourceforge.net/</a>).</p>
+</div>
+<div class="paragraph">
+<p>Please download and install the <strong>bsc</strong> compiler from
+<a href="https://github.com/B-Lang-org/bsc" class="bare" target="_blank" rel="noopener">https://github.com/B-Lang-org/bsc</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you follow the "Releases" link in the Download section, you will
+find downloadable pre-built tarfiles for various various popular
+versions of MacOS and Linux.</p>
+</div>
+<div class="paragraph">
+<p>Installation, at a minimum, involves just untar&#8217;ing the file in a
+convenient directory and ensuring that <code>&lt;untar-directory&gt;/bin/bsc</code> is
+in your PATH.</p>
+</div>
+<div class="paragraph">
+<p>[More interested users can also build <strong>bsc</strong> from source, for which you
+will need to install the <strong>ghc</strong> Haskell compiler (Section <a href="#sec_ghc">Installing the <strong>ghc</strong> Haskell compiler</a>).]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sec_verilator">4. Verilog simulation with <strong>verilator</strong> or other Verilog simulator tool</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section is needed if you plan use Verilog simulation for Drum and
+Fife, and can be skipped otherwise.</p>
+</div>
+<div class="paragraph">
+<p>All simulations in this tutorial can be performed with Bluesim, and
+therefore Verilog simulation is not strictly necessary.  However:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You may wish to examine <strong>bsc</strong>-generated Verilog.</p>
+</li>
+<li>
+<p>You wish to plug Drum or Fife Verilog into your own Verilog SoC.</p>
+</li>
+<li>
+<p>You wish to go further with Drum or Fife Verilog into an FPGA or ASIC flow.</p>
+</li>
+<li>
+<p>You may wish to take Drum or Fife Verilog through other
+Verilog-based tools (such as formal verification or other analysis
+tools).</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Although this tutorial can fruitfully be attended just as an ordinary
-lecture (i.e., observe slides and demos on the big screen), <strong>you will
-get much more value</strong> if you participate in the "hands-on" segments
-(during and after the tutorial), by code-reading, simulating and
-verifying on your own laptop.</p>
+<p>Here we describe installation of Verilator, a popular and competitive
+Verilog simulation tool, but you can use any Verilog simulator of your
+choice.</p>
+</div>
+<div class="paragraph">
+<p>Please git clone the following repository: <a href="https://github.com/verilator/verilator" class="bare" target="_blank" rel="noopener">https://github.com/verilator/verilator</a></p>
+</div>
+<div class="paragraph">
+<p>Then, build the Verilator tool.  The README provides a link to
+<a href="https://verilator.org/guide/latest/install.html" class="bare" target="_blank" rel="noopener">https://verilator.org/guide/latest/install.html</a>
+which describes the installation process in detail.</p>
+</div>
+<div class="paragraph">
+<p>Start by installing all the prequisites described in the "Install
+Prerequisites" section (<code>sudo apt-get install &lt;package&gt;</code> for Linux).
+For MacOS, use the analogous <code>brew install &lt;package&gt;</code> (using Homebrew).</p>
+</div>
+<div class="paragraph">
+<p>This is an annotated transcript of a successful install (tested on
+2025-03-10 to install 'verilator' 5.034 on MacOS, about 10 minutes):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>    $ git clone https://github.com/verilator/verilator
+    $ unset VERILATOR_ROOT  # For bash
+    $ cd verilator
+    $ git tag (and do '$ less Changes')    to see what versions exist
+        Verilator 5.034 2025-02-24    seems to be latest released (not 'devel') version
+    $ git checkout stable
+    $ autoconf         # Create ./configure script
+    $ export VERILATOR_ROOT=`pwd`    # for running Verilator from repo-build
+    $ ./configure      # Configure and create Makefile
+    $ make             # Build Verilator itself
+      (about 6 minutes on a Mac Air M2)
+
+    $ make test    ... OK!
+
+    $ bin/verilator --version
+    Verilator 5.034 2025-02-24 rev v5.034-47-gac3f30ed6
+
+    [Note: no 'make install' since we're doing 'Run-in-Place from VERILATOR_ROOT']
+
+    Symlink from ~/bin/verilator to ~/Git/verilator_5_034/bin/verilator:
+    $ cd ~/bin
+    $ ln -f -s ~/Git/verilator_5_034/bin/verilator  verilator</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_if_you_use_a_different_verilog_simulation_tool">4.1. If you use a different Verilog simulation tool</h3>
+<div class="paragraph">
+<p>The <strong>bsc</strong> compiler is invoked with the <code>-verilog</code> flag to compile a
+<strong>BSV</strong> program to Verilog.  It can then be invoked again with the
+<code>-vsim &lt;simulator&gt;</code> flag to compile and link the Verilog into a
+Verilog simulation.  The default simulator is Verilator, but you can
+provide any of the following simulator names:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>iverilog   cvc        cver    isim
+modelsim   ncverilog  questa  vcs  vcsi
+verilator  veriwell   xsim</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Some of these simulators are free, others need a paid license from a
+vendor (which you may already have).</p>
+</div>
+<div class="paragraph">
+<p>The actual Verilog generated is the same for all of them.  But our
+code imports some C code for the surrounding "SoC" environment around
+the Drum and Fife CPUs, and different Verilog simulators may use
+different conventions for importing C; the <code>-vsim &lt;simulator&gt;</code> flag
+tells <strong>bsc</strong> to use the appropriate C-import mechanism for each
+simulator.  Verilator uses standard SystemVerilog DPI mechanism, and
+this may work nowadays on other simulators as well.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<code>iverilog</code> is very slow compared to Verilator or any of the
+major Verilog simulators.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sec_testrig">5. <strong>TestRIG</strong> tool for property-based testing of RISC-V CPUs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section is needed if you plan to use <strong>TestRIG</strong>, and can be
+skipped otherwise.</p>
+</div>
+<div class="paragraph">
+<p>Please <code>git clone</code> the following repository:
+<a href="https://github.com/CTSRD-CHERI/TestRIG" class="bare" target="_blank" rel="noopener">https://github.com/CTSRD-CHERI/TestRIG</a></p>
+</div>
+<div class="sect2">
+<h3 id="_python">5.1. <strong>Python</strong></h3>
+<div class="paragraph">
+<p>The top-level of <strong>TestRIG</strong> is a Python script, in <code>utils/scripts/runTestRIG.py</code>.</p>
+</div>
+<div class="paragraph">
+<p>Most people already have Python installed on their laptops; if not,
+there are countless resources on the Web (and perhaps your friends)
+that can help you to install Python.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_qcvengine">5.2. <strong>QCVengine</strong></h3>
+<div class="paragraph">
+<p><strong>TestRIG</strong> uses a sub-program called <strong>QCVengine</strong> ("QuickCheck
+Verification Engine") to generate random test programs for execution
+on Drum and Fife and Sail, and to verify the responses. <strong>QCVengine</strong> is
+written in Haskell, and uses the famous "QuickCheck" library for test
+generation and manipulation.  Thus, to build this, one needs to
+install the <strong>ghc</strong> Haskell compiler.</p>
+</div>
+<div class="sect3">
+<h4 id="sec_ghc">5.2.1. Installing the <strong>ghc</strong> Haskell compiler</h4>
+<div class="paragraph">
+<p>Detailed and clear instruction on how to install the <strong>ghc</strong> Haskell
+compiler can be found at:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.haskell.org/ghcup/" class="bare" target="_blank" rel="noopener">https://www.haskell.org/ghcup/</a><br>
+<a href="https://www.haskell.org/ghcup/install/" class="bare" target="_blank" rel="noopener">https://www.haskell.org/ghcup/install/</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_building_qcvengine_with_the_ghc_haskell_compiler">5.2.2. Building <strong>QCVEngine</strong> with the <strong>ghc</strong> Haskell compiler</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>    $ cd &lt;your clone of TestRIG repo (see start of this section)&gt;
+    $ make QCVEngine</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This places the <strong>QCVEngine</strong> executable in a standard place known to <strong>TestRIG</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_official_sail_risc_v_formal_specification">5.3. Official <strong>Sail RISC-V Formal Specification</strong></h3>
+<div class="paragraph">
+<p><strong>TestRIG</strong> can compare any two RISC-V implementations (simulations),
+"A" and "B".  In this tutorial, for "A" we use the official <strong>Sail
+RISC-V ISA Formal Specification</strong> which is compiled into an executable
+(simulation).  For "B" we use Drum or Fife in a wrapper for <strong>TestRIG</strong>.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>Sail RISC-V ISA Formal Specification</strong>, as its name implies, is
+written in the <strong>Sail</strong> language for formal ISA specifications. (Sail
+has also been used for formal specs of other ISAs, such as ARM, POWER,
+x86, etc.)</p>
+</div>
+<div class="paragraph">
+<p>The <strong>Sail RISC-V ISA Formal Specification</strong> can be compiled into an
+executable, thereby providing a reference simulator for the RISC-V
+ISA.  The <strong>Sail</strong> compiler is written in <strong>OCaml</strong>.  Thus, to build the
+Sail RISC-V simulator, one needs to install the <strong>OCaml</strong> compiler.</p>
+</div>
+<div class="sect3">
+<h4 id="_installing_the_ocaml_compiler">5.3.1. Installing the <strong>OCaml</strong> compiler</h4>
+<div class="paragraph">
+<p>Detailed and clear instruction on how to install <strong>OCaml</strong> (including
+its compiler) can be found at:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://ocaml.org/docs/install.html" class="bare" target="_blank" rel="noopener">https://ocaml.org/docs/install.html</a></p>
+</div>
+<div class="paragraph">
+<p>It will show you first how to "Install <strong>opam</strong>", the OCaml package
+manager, using the usual <code>apt-get</code> (Linux) or <code>brew</code> or <code>port</code>
+(MacOS).  Then, the "Initialize <strong>opam</strong>" section shows how to use it to
+install the rest of <strong>OCaml</strong>.</p>
+</div>
+<div class="paragraph">
+<p>In this tutorial, we don&#8217;t do any development in <strong>OCaml</strong>, we merely
+use the <strong>OCaml</strong> compiler to compile the <strong>Sail</strong> spec.  Unless you plan
+to do some development in <strong>OCaml</strong>, you can skip the "Install Platform
+Tools" section.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_building_sail_risc_v_formal_specification_with_ocaml_compiler">5.3.2. Building <strong>Sail RISC-V Formal Specification</strong> with <strong>OCaml</strong> compiler</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>    $ cd &lt;your clone of TestRIG repo (see start of this section)&gt;
+    $ make sail-rv32</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This places the <strong>Sail RISC-V Formal Specification</strong> simulator in a
+standard place known to <strong>TestRIG</strong>.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version v0.800<br>
-Last updated 2025-08-15 15:06:30 -0400
+Version v0.900<br>
+Last updated 2025-08-15 15:35:38 -0400
 </div>
 </div>
 </body>
