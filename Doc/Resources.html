@@ -488,7 +488,7 @@ documents.</p>
 </li>
 <li><a href="#_official_sail_risc_v_formal_specification">5.3. Official <strong>Sail RISC-V Formal Specification</strong></a>
 <ul class="sectlevel3">
-<li><a href="#_installing_the_ocaml_compiler_and_the_sail_compiler">5.3.1. Installing the <strong>OCaml</strong> compiler and the <strong>Sail</strong> compiler</a></li>
+<li><a href="#_installing_the_ocaml_system_including_the_sail_compiler">5.3.1. Installing the <strong>OCaml</strong> system (including the <strong>Sail</strong> compiler)</a></li>
 <li><a href="#_building_sail_risc_v_formal_specification_simulator_with_sail_compiler">5.3.2. Building <strong>Sail RISC-V Formal Specification</strong> simulator with <strong>Sail</strong> compiler</a></li>
 </ul>
 </li>
@@ -884,12 +884,13 @@ x86, etc.)</p>
 <div class="paragraph">
 <p>The <strong>Sail RISC-V ISA Formal Specification</strong> can be compiled into an
 executable, thereby providing a reference simulator for the RISC-V
-ISA.  The <strong>Sail</strong> compiler is written in <strong>OCaml</strong>.  Thus, to build the
-Sail RISC-V simulator, one needs to install the <strong>OCaml</strong> system which
-also installs the Sail compiler.</p>
+ISA.  The <strong>Sail</strong> compiler is written in <strong>OCaml</strong>, and is built as part
+of installing the <strong>OCaml</strong> system.  Thus, to build the Sail RISC-V
+simulator, one needs to install the <strong>OCaml</strong> system which also installs
+the Sail compiler.</p>
 </div>
 <div class="sect3">
-<h4 id="_installing_the_ocaml_compiler_and_the_sail_compiler">5.3.1. Installing the <strong>OCaml</strong> compiler and the <strong>Sail</strong> compiler</h4>
+<h4 id="_installing_the_ocaml_system_including_the_sail_compiler">5.3.1. Installing the <strong>OCaml</strong> system (including the <strong>Sail</strong> compiler)</h4>
 <div class="paragraph">
 <p>Detailed and clear instruction on how to install <strong>OCaml</strong> (including
 its compiler) can be found at:</p>
@@ -901,7 +902,8 @@ its compiler) can be found at:</p>
 <p>It will show you first how to "Install <strong>opam</strong>", the OCaml package
 manager, using the usual <code>apt-get</code> (Linux) or <code>brew</code> or <code>port</code>
 (MacOS).  Then, the "Initialize <strong>opam</strong>" section shows how to use it to
-install the rest of <strong>OCaml</strong>.</p>
+install the rest of the <strong>OCaml</strong> system (which includes the <strong>Sail</strong>
+compiler).</p>
 </div>
 <div class="paragraph">
 <p>In this tutorial, we don&#8217;t do any development in <strong>OCaml</strong>, we merely
@@ -918,8 +920,8 @@ Tools" section.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>and you can confirm that you have the Sail compiler installed in the
-OCaml environment like this:</p>
+<p>which will include the <strong>Sail</strong> compiler in your PATH, which you can
+confirm like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -970,7 +972,7 @@ standard place known to <strong>TestRIG</strong>.</p>
 <div id="footer">
 <div id="footer-text">
 Version v0.910<br>
-Last updated 2025-08-27 21:13:15 -0400
+Last updated 2025-08-27 21:23:46 -0400
 </div>
 </div>
 </body>

@@ -306,12 +306,13 @@ x86, etc.)
 
 The *Sail RISC-V ISA Formal Specification* can be compiled into an
 executable, thereby providing a reference simulator for the RISC-V
-ISA.  The *Sail* compiler is written in *OCaml*.  Thus, to build the
-Sail RISC-V simulator, one needs to install the *OCaml* system which
-also installs the Sail compiler.
+ISA.  The *Sail* compiler is written in *OCaml*, and is built as part
+of installing the *OCaml* system.  Thus, to build the Sail RISC-V
+simulator, one needs to install the *OCaml* system which also installs
+the Sail compiler.
 
 // ----------------------------------------------------------------
-==== Installing the *OCaml* compiler and the *Sail* compiler
+==== Installing the *OCaml* system (including the *Sail* compiler)
 
 Detailed and clear instruction on how to install *OCaml* (including
 its compiler) can be found at:
@@ -321,7 +322,8 @@ https://ocaml.org/docs/install.html[^]
 It will show you first how to "Install *opam*", the OCaml package
 manager, using the usual `apt-get` (Linux) or `brew` or `port`
 (MacOS).  Then, the "Initialize *opam*" section shows how to use it to
-install the rest of *OCaml*.
+install the rest of the *OCaml* system (which includes the *Sail*
+compiler).
 
 In this tutorial, we don't do any development in *OCaml*, we merely
 use the *OCaml* compiler to compile the *Sail* spec.  Unless you plan
@@ -333,8 +335,8 @@ Once installed, the OCaml environment is usually set up like this:
     $ eval $(opam config env)
 ```
 
-and you can confirm that you have the Sail compiler installed in the
-OCaml environment like this:
+which will include the *Sail* compiler in your PATH, which you can
+confirm like this:
 
 ```
     $ which sail
