@@ -441,8 +441,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Resources for tutorial "Learn to Design and Verify a 6-stage pipelined RISC-V CPU"</h1>
 <div class="details">
 <span id="author" class="author">(c) Rishiyur S. Nikhil, Bluespec, Inc. 2025</span><br>
-<span id="revnumber">version v0.900,</span>
-<span id="revdate">2025-08-15</span>
+<span id="revnumber">version v0.910,</span>
+<span id="revdate">2025-08-27</span>
 </div>
 </div>
 <div id="content">
@@ -488,8 +488,8 @@ documents.</p>
 </li>
 <li><a href="#_official_sail_risc_v_formal_specification">5.3. Official <strong>Sail RISC-V Formal Specification</strong></a>
 <ul class="sectlevel3">
-<li><a href="#_installing_the_ocaml_compiler">5.3.1. Installing the <strong>OCaml</strong> compiler</a></li>
-<li><a href="#_building_sail_risc_v_formal_specification_with_ocaml_compiler">5.3.2. Building <strong>Sail RISC-V Formal Specification</strong> with <strong>OCaml</strong> compiler</a></li>
+<li><a href="#_installing_the_ocaml_compiler_and_the_sail_compiler">5.3.1. Installing the <strong>OCaml</strong> compiler and the <strong>Sail</strong> compiler</a></li>
+<li><a href="#_building_sail_risc_v_formal_specification_simulator_with_sail_compiler">5.3.2. Building <strong>Sail RISC-V Formal Specification</strong> simulator with <strong>Sail</strong> compiler</a></li>
 </ul>
 </li>
 </ul>
@@ -504,8 +504,15 @@ documents.</p>
 <div class="paragraph">
 <p>This document describes the resources to download and install for the
 "hands-on" part of the "Learn to Design and Verify a 6-stage pipelined
-RISC-V CPU" tutorial.  The following figure is taken from the tutorial
-slide deck, showing the tutorial plan:</p>
+RISC-V CPU" tutorial.  We recommend that you practice all these
+download/installation actions as soon as you can (how about right
+now!) just to make sure it all works for you.  Closer to the tutorial
+date, please refresh everything/rebuild so you have the latest
+versions of everything.</p>
+</div>
+<div class="paragraph">
+<p>The following figure is taken from the tutorial slide deck, showing
+the tutorial plan:</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -802,7 +809,7 @@ major Verilog simulators.
 skipped otherwise.</p>
 </div>
 <div class="paragraph">
-<p>Please <code>git clone</code> the following repository:
+<p>Please <code>git clone</code> the <strong>TestRIG</strong> repository:
 <a href="https://github.com/CTSRD-CHERI/TestRIG" class="bare" target="_blank" rel="noopener">https://github.com/CTSRD-CHERI/TestRIG</a></p>
 </div>
 <div class="paragraph">
@@ -878,10 +885,11 @@ x86, etc.)</p>
 <p>The <strong>Sail RISC-V ISA Formal Specification</strong> can be compiled into an
 executable, thereby providing a reference simulator for the RISC-V
 ISA.  The <strong>Sail</strong> compiler is written in <strong>OCaml</strong>.  Thus, to build the
-Sail RISC-V simulator, one needs to install the <strong>OCaml</strong> compiler.</p>
+Sail RISC-V simulator, one needs to install the <strong>OCaml</strong> system which
+also installs the Sail compiler.</p>
 </div>
 <div class="sect3">
-<h4 id="_installing_the_ocaml_compiler">5.3.1. Installing the <strong>OCaml</strong> compiler</h4>
+<h4 id="_installing_the_ocaml_compiler_and_the_sail_compiler">5.3.1. Installing the <strong>OCaml</strong> compiler and the <strong>Sail</strong> compiler</h4>
 <div class="paragraph">
 <p>Detailed and clear instruction on how to install <strong>OCaml</strong> (including
 its compiler) can be found at:</p>
@@ -901,9 +909,49 @@ use the <strong>OCaml</strong> compiler to compile the <strong>Sail</strong> spe
 to do some development in <strong>OCaml</strong>, you can skip the "Install Platform
 Tools" section.</p>
 </div>
+<div class="paragraph">
+<p>Once installed, the OCaml environment is usually set up like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>    $ eval $(opam config env)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and you can confirm that you have the Sail compiler installed in the
+OCaml environment like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>    $ which sail
+    &lt;your-home-directory&gt;/.opam/default/bin/sail</code></pre>
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_building_sail_risc_v_formal_specification_with_ocaml_compiler">5.3.2. Building <strong>Sail RISC-V Formal Specification</strong> with <strong>OCaml</strong> compiler</h4>
+<h4 id="_building_sail_risc_v_formal_specification_simulator_with_sail_compiler">5.3.2. Building <strong>Sail RISC-V Formal Specification</strong> simulator with <strong>Sail</strong> compiler</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can practice building the simulator now, using the following command.</p>
+</div>
+<div class="paragraph">
+<p>However, we&#8217;ll need to edit the Sail code to configure it to support
+the same RISC-V configuration choices as Fife/Drum.  We will provide a
+patch for this edit closer to the date of the tutorial.</p>
+</div>
+<div class="paragraph">
+<p>Before the tutorial, you will need to apply the provided patch, and rebuild.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>    $ cd &lt;your clone of TestRIG repo (see start of this section)&gt;
@@ -921,8 +969,8 @@ standard place known to <strong>TestRIG</strong>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version v0.900<br>
-Last updated 2025-08-15 15:53:21 -0400
+Version v0.910<br>
+Last updated 2025-08-27 21:13:15 -0400
 </div>
 </div>
 </body>
