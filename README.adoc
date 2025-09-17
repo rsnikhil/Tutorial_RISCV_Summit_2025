@@ -29,6 +29,8 @@ ____
 
 This repository contains:
 
+* link:Nikhil_Tutorial_Invitation.m4v[A brief video invitation] to attend this tutorial.
+
 * link:Doc/Tutorial_Description.txt[A brief description of the
   tutorial] (same as on
   link:https://riscv.org/community/risc-v-summits/[RISCV.org^]
