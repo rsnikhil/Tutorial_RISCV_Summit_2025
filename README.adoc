@@ -40,8 +40,8 @@ Please visit the
   link:https://riscv.org/community/risc-v-summits/[RISCV.org^] website
   if you wish to register for and attend the summit or the tutorial.
 
-* link:Slides_Placeholder.pdf[PDF slides] for the tutorial
-  (placeholder for now; will be made available shortly before the
+* link:Slides_Nikhil_RISCV_Summit_Tutorial.pdf[PDF slides] for the tutorial
+  (final version will be made available shortly before the
   tutorial date).
 
 * Instructions for acquiring and installing all resources/tools
