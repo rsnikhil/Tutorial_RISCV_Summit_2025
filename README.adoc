@@ -1,9 +1,9 @@
 = Learn to Design and Verify a 6-stage pipelined RISC-V CPU
 (c) Rishiyur S. Nikhil, Bluespec, Inc. 2025
-:revnumber: v0.800
-:revdate: 2025-08-15
+:revnumber: v0.900
+:revdate: 2025-10-14
 :imagesdir: Doc/Figs
-:keywords: Bluespec, B-Lang, BSV, BH, RISC-V, Pipelined CPU, HDL, HLHDL, High Level Hardware Design Language, Fife, Drum
+:keywords: Bluespec, B-Lang, BSV, BH, RISC-V, Pipelined CPU, HDL, HLHDL, High Level Hardware Design Language
 
 // ****************************************************************
 
@@ -12,8 +12,8 @@
 This document's source is `README.adoc` and can be read as-is in a
 text-editor or terminal.  It can also be processed with the free,
 open-source `asciidoctor` tool into `README.html` and viewed in any
-browser.  GitHub will automatically process and display .adoc
-documents.
+browser. +
+On GitHub, `.adoc` files are rendered automatically.
 ====
 
 // ****************************************************************
@@ -45,8 +45,9 @@ Please visit the
   tutorial date).
 
 * Instructions for acquiring and installing all resources/tools
-  (link:Doc/Resources.adoc[adoc],link:Doc/Resources.html[html]) needed
-  for "hands-on" participation (all are free and open-source).
+  needed
+  for "hands-on" participation (all are free and open-source)
+  (link:Doc/Resources.adoc[adoc version]) (link:Doc/Resources.html[html version])
 +
 [IMPORTANT]
 ====

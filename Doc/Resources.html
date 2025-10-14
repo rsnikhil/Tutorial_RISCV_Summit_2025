@@ -441,8 +441,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Resources for tutorial "Learn to Design and Verify a 6-stage pipelined RISC-V CPU"</h1>
 <div class="details">
 <span id="author" class="author">(c) Rishiyur S. Nikhil, Bluespec, Inc. 2025</span><br>
-<span id="revnumber">version v0.910,</span>
-<span id="revdate">2025-08-27</span>
+<span id="revnumber">version v0.920,</span>
+<span id="revdate">2025-10-14</span>
 </div>
 </div>
 <div id="content">
@@ -459,8 +459,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This document&#8217;s source is <code>Resources.adoc</code> and can be read as-is in a
 text-editor or terminal.  It can also be processed with the free,
 open-source <code>asciidoctor</code> tool into <code>Resources.html</code> and viewed in any
-browser.  GitHub will automatically process and display .adoc
-documents.</p>
+browser.<br>
+On GitHub, <code>.adoc</code> files are rendered automatically.</p>
 </div>
 </td>
 </tr>
@@ -470,7 +470,7 @@ documents.</p>
 <div id="toctitle" class="title">Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_introduction">1. Introduction</a></li>
-<li><a href="#sec_book_repo">2. Drum and Fife hardware design source code, textbook, and more</a></li>
+<li><a href="#sec_book_repo">2. <strong>Fife</strong> and <strong>Drum</strong> hardware design source code, textbook, and more</a></li>
 <li><a href="#sec_bsc">3. <strong>bsc</strong> compiler (for Bluespec <strong>BSV</strong> High-Level Hardware Description Language)</a></li>
 <li><a href="#sec_verilator">4. Verilog simulation with <strong>verilator</strong> or other Verilog simulator tool</a>
 <ul class="sectlevel2">
@@ -486,7 +486,7 @@ documents.</p>
 <li><a href="#_building_qcvengine_with_the_ghc_haskell_compiler">5.2.2. Building <strong>QCVEngine</strong> with the <strong>ghc</strong> Haskell compiler</a></li>
 </ul>
 </li>
-<li><a href="#_official_sail_risc_v_formal_specification">5.3. Official <strong>Sail RISC-V Formal Specification</strong></a>
+<li><a href="#_official_risc_v_formal_specification_written_in_sail">5.3. Official <strong>RISC-V Formal Specification</strong> (written in <strong>Sail</strong>)</a>
 <ul class="sectlevel3">
 <li><a href="#_installing_the_ocaml_system_including_the_sail_compiler">5.3.1. Installing the <strong>OCaml</strong> system (including the <strong>Sail</strong> compiler)</a></li>
 <li><a href="#_building_sail_risc_v_formal_specification_simulator_with_sail_compiler">5.3.2. Building <strong>Sail RISC-V Formal Specification</strong> simulator with <strong>Sail</strong> compiler</a></li>
@@ -574,29 +574,29 @@ do more of the "hands-on" activities:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>git clone</code> a repo for Drum and Fife code (Section
-<a href="#sec_book_repo">Drum and Fife hardware design source code, textbook, and more</a>), textbook, etc.</p>
+<p><code>git clone</code> a repo for <strong>Fife</strong> and <strong>Drum</strong> code (Section
+<a href="#sec_book_repo"><strong>Fife</strong> and <strong>Drum</strong> hardware design source code, textbook, and more</a>), textbook, etc.</p>
 <div class="paragraph">
-<p>This enables you to read all Drum and Fife hardware design code.</p>
+<p>This enables you to read all <strong>Fife</strong> and <strong>Drum</strong> hardware design code.</p>
 </div>
 </li>
 <li>
 <p>Download and install the <strong>bsc</strong> compiler (Section <a href="#sec_bsc"><strong>bsc</strong> compiler (for Bluespec <strong>BSV</strong> High-Level Hardware Description Language)</a>).</p>
 <div class="paragraph">
-<p>This enables you to compile and run Bluesim simulations of Drum and Fife.</p>
+<p>This enables you to compile and run Bluesim simulations of <strong>Fife</strong> and <strong>Drum</strong>.</p>
 </div>
 </li>
 <li>
 <p><code>git clone</code> and install <strong>TestRIG</strong> (Section <a href="#sec_testrig"><strong>TestRIG</strong> tool for property-based testing of RISC-V CPUs</a>).</p>
 <div class="paragraph">
-<p>This enables using <strong>TestRIG</strong> on Drum and Fife using Bluesim simulation.</p>
+<p>This enables using <strong>TestRIG</strong> on <strong>Fife</strong> and <strong>Drum</strong> using Bluesim simulation.</p>
 </div>
 </li>
 <li>
 <p><code>git clone</code> and install <strong>Verilator</strong> (Section
 <a href="#sec_verilator">Verilog simulation with <strong>verilator</strong> or other Verilog simulator tool</a>).</p>
 <div class="paragraph">
-<p>This enables you to compile and run Verilog simulations of Drum and Fife, and <strong>TestRIG</strong>.</p>
+<p>This enables you to compile and run Verilog simulations of <strong>Fife</strong> and <strong>Drum</strong>, and <strong>TestRIG</strong>.</p>
 </div>
 </li>
 </ol>
@@ -604,7 +604,7 @@ do more of the "hands-on" activities:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="sec_book_repo">2. Drum and Fife hardware design source code, textbook, and more</h2>
+<h2 id="sec_book_repo">2. <strong>Fife</strong> and <strong>Drum</strong> hardware design source code, textbook, and more</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Please <code>git clone</code> the following repository to your laptop:</p>
@@ -618,19 +618,19 @@ do more of the "hands-on" activities:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>All the hardware design source code for the Drum and Fife CPUs (in
+<p>All the hardware design source code for the <strong>Fife</strong> and <strong>Drum</strong> CPUs (in
 the <code>Code/src_*</code>) directories.</p>
 </li>
 <li>
 <p>Makefiles to build standalone Bluesim and Verilator simulations of
-Drum and Fife, ready to execute RISC-V RV32i binaries.</p>
+<strong>Fife</strong> and <strong>Drum</strong>, ready to execute RISC-V RV32i binaries.</p>
 </li>
 <li>
 <p>Documentation in the <code>Doc/</code> directory.</p>
 </li>
 <li>
 <p>Additional source code and Makefile in the <code>TestRIG/</code> directory
-providing a wrapper for Drum and Fife to be plugged into <strong>TestRIG</strong>.</p>
+providing a wrapper for <strong>Fife</strong> and <strong>Drum</strong> to be plugged into <strong>TestRIG</strong>.</p>
 </li>
 <li>
 <p>A 300 page PDF textbook: <code>Book_BLang_RISCV.pdf</code></p>
@@ -648,10 +648,10 @@ graduate-level university course.</p>
 <h2 id="sec_bsc">3. <strong>bsc</strong> compiler (for Bluespec <strong>BSV</strong> High-Level Hardware Description Language)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This tool is sufficient for compiling and building the Drum and Fife
+<p>This tool is sufficient for compiling and building the <strong>Fife</strong> and <strong>Drum</strong>
 CPUs into a native-code simulator ("Bluesim") and running them. It is
 also sufficient for compiling and building the <strong>TestRIG</strong> wrapper for
-Drum and Fife.</p>
+<strong>Fife</strong> and <strong>Drum</strong>.</p>
 </div>
 <div class="paragraph">
 <p>Bluesim is 100% cycle-accurate to Verilog simulation, and can also
@@ -683,8 +683,8 @@ will need to install the <strong>ghc</strong> Haskell compiler (Section <a href=
 <h2 id="sec_verilator">4. Verilog simulation with <strong>verilator</strong> or other Verilog simulator tool</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section is needed if you plan use Verilog simulation for Drum and
-Fife, and can be skipped otherwise.</p>
+<p>This section is needed if you plan use Verilog simulation for <strong>Fife</strong>
+and <strong>Drum</strong>, and can be skipped otherwise.</p>
 </div>
 <div class="paragraph">
 <p>All simulations in this tutorial can be performed with Bluesim, and
@@ -696,13 +696,13 @@ therefore Verilog simulation is not strictly necessary.  However:</p>
 <p>You may wish to examine <strong>bsc</strong>-generated Verilog.</p>
 </li>
 <li>
-<p>You wish to plug Drum or Fife Verilog into your own Verilog SoC.</p>
+<p>You wish to plug <strong>Fife</strong> or <strong>Drum</strong> Verilog into your own Verilog SoC.</p>
 </li>
 <li>
-<p>You wish to go further with Drum or Fife Verilog into an FPGA or ASIC flow.</p>
+<p>You wish to go further with <strong>Drum</strong> or <strong>Fife</strong> Verilog into an FPGA or ASIC flow.</p>
 </li>
 <li>
-<p>You may wish to take Drum or Fife Verilog through other
+<p>You may wish to take <strong>Fife</strong> or <strong>Drum</strong> Verilog through other
 Verilog-based tools (such as formal verification or other analysis
 tools).</p>
 </li>
@@ -779,7 +779,7 @@ vendor (which you may already have).</p>
 <div class="paragraph">
 <p>The actual Verilog generated is the same for all of them.  But our
 code imports some C code for the surrounding "SoC" environment around
-the Drum and Fife CPUs, and different Verilog simulators may use
+the <strong>Fife</strong> and <strong>Drum</strong> CPUs, and different Verilog simulators may use
 different conventions for importing C; the <code>-vsim &lt;simulator&gt;</code> flag
 tells <strong>bsc</strong> to use the appropriate C-import mechanism for each
 simulator.  Verilator uses standard SystemVerilog DPI mechanism, and
@@ -838,7 +838,7 @@ that can help you to install Python.</p>
 <div class="paragraph">
 <p><strong>TestRIG</strong> uses a sub-program called <strong>QCVengine</strong> ("QuickCheck
 Verification Engine") to generate random test programs for execution
-on Drum and Fife and Sail, and to verify the responses. <strong>QCVengine</strong> is
+on <strong>Fife</strong> and <strong>Drum</strong> and <strong>Sail</strong>, and to verify the responses. <strong>QCVengine</strong> is
 written in Haskell, and uses the famous "QuickCheck" library for test
 generation and manipulation.  Thus, to build this, one needs to
 install the <strong>ghc</strong> Haskell compiler.</p>
@@ -868,16 +868,17 @@ compiler can be found at:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_official_sail_risc_v_formal_specification">5.3. Official <strong>Sail RISC-V Formal Specification</strong></h3>
+<h3 id="_official_risc_v_formal_specification_written_in_sail">5.3. Official <strong>RISC-V Formal Specification</strong> (written in <strong>Sail</strong>)</h3>
 <div class="paragraph">
 <p><strong>TestRIG</strong> can compare any two RISC-V implementations (simulations),
 "A" and "B".  In this tutorial, for "A" we use the official <strong>Sail
 RISC-V ISA Formal Specification</strong> which is compiled into an executable
-(simulation).  For "B" we use Drum or Fife in a wrapper for <strong>TestRIG</strong>.</p>
+(simulation).  For "B" we use <strong>Fife</strong> or <strong>Drum</strong> in a wrapper for
+<strong>TestRIG</strong>.</p>
 </div>
 <div class="paragraph">
 <p>The <strong>Sail RISC-V ISA Formal Specification</strong>, as its name implies, is
-written in the <strong>Sail</strong> language for formal ISA specifications. (Sail
+written in the <strong>Sail</strong> language for formal ISA specifications. (<strong>Sail</strong>
 has also been used for formal specs of other ISAs, such as ARM, POWER,
 x86, etc.)</p>
 </div>
@@ -885,9 +886,9 @@ x86, etc.)</p>
 <p>The <strong>Sail RISC-V ISA Formal Specification</strong> can be compiled into an
 executable, thereby providing a reference simulator for the RISC-V
 ISA.  The <strong>Sail</strong> compiler is written in <strong>OCaml</strong>, and is built as part
-of installing the <strong>OCaml</strong> system.  Thus, to build the Sail RISC-V
+of installing the <strong>OCaml</strong> system.  Thus, to build the <strong>Sail</strong> RISC-V
 simulator, one needs to install the <strong>OCaml</strong> system which also installs
-the Sail compiler.</p>
+the <strong>Sail</strong> compiler.</p>
 </div>
 <div class="sect3">
 <h4 id="_installing_the_ocaml_system_including_the_sail_compiler">5.3.1. Installing the <strong>OCaml</strong> system (including the <strong>Sail</strong> compiler)</h4>
@@ -943,9 +944,9 @@ confirm like this:</p>
 <p>You can practice building the simulator now, using the following command.</p>
 </div>
 <div class="paragraph">
-<p>However, we&#8217;ll need to edit the Sail code to configure it to support
-the same RISC-V configuration choices as Fife/Drum.  We will provide a
-patch for this edit closer to the date of the tutorial.</p>
+<p>However, we&#8217;ll need to edit the <strong>Sail</strong> code to configure it to support
+the same RISC-V configuration choices as <strong>Fife</strong> and <strong>Drum</strong>.  We will
+provide a patch for this edit closer to the date of the tutorial.</p>
 </div>
 <div class="paragraph">
 <p>Before the tutorial, you will need to apply the provided patch, and rebuild.</p>
@@ -971,8 +972,8 @@ standard place known to <strong>TestRIG</strong>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version v0.910<br>
-Last updated 2025-08-27 21:23:46 -0400
+Version v0.920<br>
+Last updated 2025-10-14 14:44:08 -0400
 </div>
 </div>
 </body>

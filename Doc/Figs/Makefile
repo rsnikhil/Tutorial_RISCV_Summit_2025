@@ -11,9 +11,12 @@ help:
 	@echo "  full_clean    restore directory to pristine state"
 
 # ================================================================
-# RULES
+# Database of diagrams, in SVG format (not public)
 
 DIAGS_2025 = $(HOME)/Diagrams/2025
+
+# ================================================================
+# RULES
 
 %.png: $(DIAGS_2025)/%.svg
 	inkscape --export-filename=$@  --export-area-drawing  -d 300 -y 0.0 $<
